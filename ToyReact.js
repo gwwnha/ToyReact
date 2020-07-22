@@ -58,6 +58,7 @@ export class Component {
     range.setEnd(this.range.endContainer, this.range.endOffset);
     range.insertNode(placeholder);
     this.range.deleteContents();
+    // @babel/plugin-transform-react-jsx
     let vdom = this.render();
     vdom.mountTo(this.range);
     
@@ -96,6 +97,7 @@ export class Component {
 
 export const ToyReact = {
   createElement(type, attributes, ...children) {
+    // console.log('children:' ,children)
     let element;
     if (typeof type === "string") {
       element = new ElementWrapper(type);
